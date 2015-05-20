@@ -30,4 +30,18 @@ package object scala {
    * @return
    */
   def doWith[A, B, C](ctx1: A, ctx2: B)(action: (A, B) => C): C = action(ctx1, ctx2)
+
+  def assertNever(message: String) = assert(assertion = false, message)
+
+  def assertNever() = assert(assertion = false)
+
+  def impossibleCase() = {
+    assertNever()
+    ???
+  }
+
+  def impossibleCase(message: String) = {
+    assertNever(message)
+    ???
+  }
 }
